@@ -15,9 +15,15 @@ system_create_user() {
   sleep 2
 
   sudo su - root <<EOF
-  adduser -m -p $(openssl passwd -1 ${deploy_password}) -s /bin/bash -G sudo deploy
-  # useradd -m -p $(openssl passwd -1 ${deploy_password}) -s /bin/bash -G sudo deploy
+  # adduser -m -p $(openssl passwd -1 ${deploy_password}) -s /bin/bash -G sudo deploy
+  # # useradd -m -p $(openssl passwd -1 ${deploy_password}) -s /bin/bash -G sudo deploy
+  # usermod -aG sudo deploy
+  
+  adduser --disabled-password --gecos "" deploy
+  echo "deploy:${deploy_password}" | chpasswd
   usermod -aG sudo deploy
+  
+
 EOF
 
   sleep 2
