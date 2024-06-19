@@ -35,7 +35,8 @@ system_git_clone() {
   sleep 2
 
   sudo su - deploy <<EOF
-  https://github.com/pablowilliam/Izingpro.git /home/deploy/izing.io/
+  https://github.com/GedelQ/Izingpro.git /home/deploy/izing.io/
+  # https://github.com/pablowilliam/Izingpro.git /home/deploy/izing.io/
 EOF
 
   sleep 2
